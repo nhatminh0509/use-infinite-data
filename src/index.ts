@@ -102,4 +102,8 @@ const useInfiniteData = (query: QueryType, config: ConfigType) => {
   };
 };
 
+export const invalidateQueries = (queryKey: string) => {
+  Observer.emit(queryKey)
+}
+
 export default useInfiniteData;

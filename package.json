@@ -1,6 +1,6 @@
 {
   "name": "@dapp-builder/use-infinite-data",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "keywords": ["hooks", "custom-hooks", "infinite-data", "infinite-scroll", "react-infinite-scroll", "next-js", "react-js"],
   "main": "lib/index.js",
