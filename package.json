@@ -1,0 +1,30 @@
+{
+  "name": "@dapp-builder/use-infinite-data",
+  "version": "0.0.3",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "type": "module",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "dev": "npx ts-node --moduleResolution src/index.ts",
+    "build": "rm -rf lib && tsc",
+    "prepare": "npm run build"
+  },
+  "author": "@dapp-builder",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/react": "^18.0.28",
+    "react": "^18.2.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}
