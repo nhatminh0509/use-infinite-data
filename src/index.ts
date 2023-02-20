@@ -12,6 +12,8 @@ export type ConfigType = {
   caller: (...args: any[]) => Promise<any>;
 };
 
+const queryKeyPrefix = 'infinite-'
+
 const useInfiniteData = (query: QueryType, config: ConfigType) => {
   const {
     enable = true,
@@ -86,8 +88,8 @@ const useInfiniteData = (query: QueryType, config: ConfigType) => {
 
   useEffect(() => {
     if (queryKey) {
-      Observer.on(queryKey, refetchData);
-      return () => Observer.removeListener(queryKey, refetchData);
+      Observer.on(`${queryKeyPrefix}${queryKey}`, refetchData);
+      return () => Observer.removeListener(`${queryKeyPrefix}${queryKey}`, refetchData);
     }
   }, [queryKey, refetchData]);
 
@@ -103,7 +105,7 @@ const useInfiniteData = (query: QueryType, config: ConfigType) => {
 };
 
 export const invalidateQueries = (queryKey: string) => {
-  Observer.emit(queryKey)
+  Observer.emit(`${queryKeyPrefix}${queryKey}`)
 }
 
 export default useInfiniteData;
