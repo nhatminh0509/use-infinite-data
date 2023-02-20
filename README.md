@@ -7,7 +7,6 @@ A library to get data infinite
 ```
 npm install @dapp-builder/use-infinite-data
 yarn add @dapp-builder/use-infinite-data
-
 ```
 
 ## Example
@@ -21,11 +20,15 @@ const ExampleComponent = () => {
 
   const { loading, items, hasMore, nextPage } = useInfiniteData(query, {
     caller: async (args) => {
-      const response = await fetch(`https://api.example.com/data`, {
-        method: "POST",
-        body: JSON.stringify(args),
-      });
-      return response.json();
+      return {
+        data: {
+          items: [],
+          total: 0,
+          page: 0,
+          limit: 0,
+          totalPages: 0
+        },
+      };
     },
   });
 
@@ -33,15 +36,3 @@ const ExampleComponent = () => {
 };
 
 ```
-
-## Supports
-
-Caller response format: {
-  data: {
-    items: [],
-    total: 0,
-    page: 0,
-    limit: 0,
-    totalPages: 0
-  }
-}
